@@ -1,5 +1,5 @@
 module Spree
-  module ZonedHelper
+  BaseHelper.module_eval do
     def countrylist
       @zonedCountrylist ||= Country.order_by_name
     end
