@@ -1,4 +1,2 @@
-/*
- *= require store/spree_core
- *= require_tree .
-*/
+nav#zoned-countryselect { text-align: right; }
+nav#zoned-countryselect label { color: #a33; }
