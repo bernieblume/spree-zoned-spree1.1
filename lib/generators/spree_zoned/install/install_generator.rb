@@ -1,6 +1,8 @@
 module SpreeZoned
   module Generators
     class InstallGenerator < Rails::Generators::Base
+      
+      source_root File.expand_path("../assets", __FILE__)
 
       def add_javascripts
         append_file 'app/assets/javascripts/store/all.js', "//= require store/spree_zoned\n"
@@ -9,6 +11,10 @@ module SpreeZoned
 
       def add_stylesheets
         inject_into_file 'app/assets/stylesheets/store/all.css', " *= require store/spree_zoned\n", :before => /\*\//, :verbose => true
+        
+        copyasset "stylesheets/store/spree_zoned.css"
+        copyasset "stylesheets/store/zoned.css"
+                
         inject_into_file 'app/assets/stylesheets/admin/all.css', " *= require admin/spree_zoned\n", :before => /\*\//, :verbose => true
       end
 
@@ -24,6 +30,17 @@ module SpreeZoned
            puts 'Skiping rake db:migrate, don\'t forget to run it!'
          end
       end
+      
+      private
+      
+      def copyasset(filename)
+        if copy_file "#{filename}", "app/assets/#{filename}"
+          puts "Copied #{filename} into app/assets/#{filename}\n" 
+        else
+          puts "[Failed] File copying #{filename} into app/assets/#{filename}\n"
+        end
+      end
+      
     end
   end
 end
