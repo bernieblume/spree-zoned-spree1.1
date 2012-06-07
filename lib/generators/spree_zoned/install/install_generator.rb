@@ -10,10 +10,7 @@ module SpreeZoned
       end
 
       def add_stylesheets
-        #inject_into_file 'app/assets/stylesheets/store/all.css', " *= require store/spree_zoned\n", :before => /\*\//, :verbose => true
-        
-        copyasset "stylesheets/store/spree_zoned.css"
-                
+        inject_into_file 'app/assets/stylesheets/store/all.css', " *= require store/spree_zoned\n", :before => /\*\//, :verbose => true                
         inject_into_file 'app/assets/stylesheets/admin/all.css', " *= require admin/spree_zoned\n", :before => /\*\//, :verbose => true
       end
 
