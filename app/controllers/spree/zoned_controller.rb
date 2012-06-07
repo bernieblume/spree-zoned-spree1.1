@@ -1,6 +1,6 @@
 module Spree
 
-  class ZonedController < Spree::BaseController
+  class ZonedController < BaseController
 
     def setcountry
       respond_to do |format|

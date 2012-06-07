@@ -1,3 +1,3 @@
 Spree::Core::Engine.routes.draw do
-  match '/zonedcs' => "zoned#countryselect"
+  match '/zonedcs' => "spree_zoned#countryselect"
 end
