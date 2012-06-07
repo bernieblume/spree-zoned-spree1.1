@@ -1,9 +1,16 @@
-<nav id="zoned-countryselect" class="columns omega ten">
+<div id="zoned-countryselect" class="columns omega ten">
   <%= label_tag t('country') + ": "  %>
   <%= select_tag 'id',
     options_for_select(
       countrylist.map { |country| [country.name, country.id] },
-      214 # Unites States of America
+      214, # Unites States of America
     ),
-    :onchange => "alert('Du Frechdachs hast einfach das Land geändert! :-)');" %>
-</nav>
+    :data => {
+	    :remote => true,
+	    :url => url_for(
+	      :controller => "zoned", 
+		    :action => "setcountry",
+		  ),
+		}
+  %>
+</div>
