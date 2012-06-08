@@ -51,7 +51,7 @@ module SpreeZoned
         [:de, :en], # Luxembourg
       ]
       Rails.configuration.commonCountriesForSelect = ZONED_COMMON_COUNTRIES.map do |id|
-        [ Country.find_by_id(id).name, id ]
+        [ Spree::Country.find_by_id(id).name, id ]
       end
       puts "Yippie, zoned initializer finished :-)"
     end
