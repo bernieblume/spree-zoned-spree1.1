@@ -32,5 +32,5 @@ ZONED_COMMON_LOCALES =
 ]
 
 Rails.configuration.commonCountriesForSelect = ZONED_COMMON_COUNTRIES.map do |id|
-  [ Spree::Country.find_by_id(id).name, id ]
+  [ Spree::Country.find_by_id(id).name, -id ]
 end
