@@ -4,7 +4,7 @@
     options_for_select(
       Rails.application.config.commonCountriesForSelect +
         ["-----------------", 0] +
-        Spree::Zoned::CountrylistHelper::countrylist.map { |country| [country.name, country.id] },
+        countrylist.map { |country| [country.name, country.id] },
       214, # Unites States of America
     ),
     :data => {

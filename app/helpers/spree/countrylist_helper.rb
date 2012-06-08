@@ -1,6 +1,5 @@
 module Spree
-  #BaseHelper.module_eval do
-  module Zoned
+  BaseHelper.module_eval do
     module CountrylistHelper
       def countrylist
         @zonedCountrylist ||= Country.order :name
