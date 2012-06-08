@@ -2,7 +2,7 @@
   <%= label_tag t('country') + ": "  %>
   <%= select_tag 'id',
     options_for_select(
-      Rails.application.config.commomCountriesForSelect +
+      Rails.application.config.commonCountriesForSelect +
         ["-----------------", 0] +
         countrylist.map { |country| [country.name, country.id] },
       214, # Unites States of America
