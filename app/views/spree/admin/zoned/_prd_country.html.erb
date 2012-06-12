@@ -3,7 +3,7 @@
   <%= select_tag 'id',
     options_for_select( # common countries have negative id
       [["Kein Land ausgewählt", 0]] +
-      Rails.application.config.commonCountriesForSelect
+      Rails.application.config.commonCountriesForSelect,
       0, # preselect item "No country selected"
     ),
     :data => {
