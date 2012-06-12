@@ -6,6 +6,7 @@
 .idea
 .project
 tmp
+gemspec.old
 nbproject
 *.swp
 spec/dummy
