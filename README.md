@@ -26,7 +26,7 @@ Set locales (semi-) automatically by zone.
 
 ### 5. More features.
 
-Give [SpreeZoned](http://github.com/berndblume/spree_zoned) at try now!
+Give [SpreeZoned](http://github.com/berndblume/spree_zoned) a try now!
 
 &nbsp;
 
