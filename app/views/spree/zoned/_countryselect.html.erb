@@ -1,11 +1,11 @@
 <div id="zoned-countryselect" class="columns omega ten">
   <%= label_tag t('country') + ": "  %>
   <%= select_tag 'id',
-    options_for_select(
+    options_for_select( # common countries have negative id
       Rails.application.config.commonCountriesForSelect +
         [["-----------------", 0]] +
         countrylist.map { |country| [country.name, country.id] },
-      -214, # Unites States of America
+      -214, # Unites States
     ),
     :data => {
 	    :remote => true,

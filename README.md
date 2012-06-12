@@ -2,6 +2,8 @@
 
 A Spree extension to make your store zoned.
 
+## *Under Develpment! To Be Released Sooon...*
+
 &nbsp;
 
 Everything you need for a zoned Spree store:
@@ -28,7 +30,7 @@ Give [SpreeZoned](http://github.com/berndblume/spree_zoned) at try now!
 
 &nbsp;
 
-This Spree extension is probalbly essential to you if you operate outside of the US.
+This Spree extension is probalbly essential to you if operating outside of the US.
 
 &nbsp;
 
