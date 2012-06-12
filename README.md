@@ -34,6 +34,10 @@ This Spree extension is probalbly essential to you if operating outside of the U
 
 &nbsp;
 
+## Installation
+
+    rails generate spree_zoned:install
+
 ## Example
 
 Example goes here.

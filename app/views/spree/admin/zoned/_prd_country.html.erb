@@ -4,7 +4,7 @@
     options_for_select( # common countries have negative id
       [["Kein Land ausgewählt", 0]] +
       Rails.application.config.commonCountriesForSelect,
-      0, # preselect item "No country selected"
+      @current_country || 0, # preselect item "No country selected"
     ),
     :data => {
 	    :remote => true,
