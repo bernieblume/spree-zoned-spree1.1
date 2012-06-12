@@ -2,7 +2,7 @@
 
 A Spree extension to make your store zoned.
 
-## *Under Develpment! To Be Released Sooon...*
+## *Under Development! To Be Released Soon...*
 
 &nbsp;
 
