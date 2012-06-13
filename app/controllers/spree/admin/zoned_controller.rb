@@ -4,7 +4,8 @@ module Spree
       def setcountry
         respond_to do |format|
           format.js do
-            @current_country = params[:id]
+            session[:zoned] ||= {}
+            session[:zoned][:prd_country] = params[:id]
             render :nothing => true
           end
         end
