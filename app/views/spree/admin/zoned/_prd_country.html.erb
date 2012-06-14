@@ -1,13 +1,15 @@
 <li id="zoned-prd-country">
   <%= label_tag t('country') + ": "  %>
-  <%= select_tag 'id',
+  <% selected = ((session[:zoned] && session[:zoned][:prd_country]) || 0) # preselect item "No country selected" %>
+  <%= select_tag 'sel-prd-country',
     options_for_select( # common countries have negative id
       [["Kein Land ausgewählt", 0]] +
       Rails.application.config.commonCountriesForSelect,
-      (session[:zoned] && session[:zoned][:prd_country]) || 0, # preselect item "No country selected"
+      selected,
     ),
     :data => {
 	    :remote => true,
+	    "prd-country" => selected,
 	    :url => url_for(
 	      :controller => "zoned", 
 		    :action => "setcountry",

@@ -1,0 +1,5 @@
+<% if session[:zoned] && session[:zoned][:prd_country].to_i == 0 %>
+  $(".handle").hide();
+<% else %>
+  $(".handle").show();
+<% end %>  
