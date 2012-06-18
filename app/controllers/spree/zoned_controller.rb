@@ -5,7 +5,6 @@ module Spree
         format.js do
           session[:zoned] ||= {}
           session[:zoned][:current_country] = params[:id]
-          render :nothing => true
         end
       end
     end

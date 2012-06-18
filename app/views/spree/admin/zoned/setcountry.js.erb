@@ -1,5 +1,8 @@
 <% if session[:zoned] && session[:zoned][:prd_country].to_i == 0 %>
   $(".handle").hide();
+  $(".delfromcountry").hide();
 <% else %>
   $(".handle").show();
-<% end %>  
+  $(".delfromcountry").show();
+<% end %>
+location.href = "/admin/products"

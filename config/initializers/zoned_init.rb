@@ -1,3 +1,5 @@
+require "spree/zoned/search/base"
+
 #
 # ZONED_COMMON_COUNTRIES is the list of countries that will be separately listed
 # in the beginning of the country select box for easy selection.
@@ -34,3 +36,5 @@ ZONED_COMMON_LOCALES =
 Rails.configuration.commonCountriesForSelect = ZONED_COMMON_COUNTRIES.map do |id|
   [ Spree::Country.find_by_id(id).name, -id ]
 end
+
+Spree::Config.searcher_class = Spree::Zoned::Search::Base
