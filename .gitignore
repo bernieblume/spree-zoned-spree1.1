@@ -1,4 +1,6 @@
 *.tmproj
+*.sublime-project
+*.sublime-workspace
 \#*
 *~
 .#*

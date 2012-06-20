@@ -3,7 +3,9 @@ module Spree
   
     def index
       p = params ? params : {}
-      @searcher = Spree::Config.searcher_class.new(p.merge({zoned_country: (session[:zoned] && session[:zoned][:current_country]) || {}}))
+      @searcher = Spree::Config.searcher_class.new(
+      	p.merge(
+      	  {zoned_country: (session[:zoned] && session[:zoned][:current_country]) || -214 }))
       @products = @searcher.retrieve_products
       respond_with(@products)
     end

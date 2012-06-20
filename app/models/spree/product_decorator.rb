@@ -7,6 +7,16 @@ module Spree
     end
     
     def delfrom(country)
+      setorderno country, -1
+    end
+    
+    def backtocountry(country)
+      setorderno country, 0
+    end
+
+  protected
+
+    def setorderno(country, ono)
       clist = Spree::Zoned::Product.where "spree_product_id = ? AND spree_country_id = ?", id, country
       if clist == []
         zp = Spree::Zoned::Product.new
@@ -15,9 +25,9 @@ module Spree
       else
         zp = clist[0]
       end
-      zp.orderno = -1
-      zp.save!
+      zp.orderno = ono
+      zp.save
     end
-    
+
   end
 end

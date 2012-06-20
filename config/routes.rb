@@ -3,5 +3,6 @@ Spree::Core::Engine.routes.draw do
   namespace :admin do
     match '/zonedcs' => "zoned#setcountry"
     match '/products/:id/zoneddfc' => "products#deletefc", :via => :delete
+    match '/products/:id/zonedbtc' => "products#backtocountry", :via => :put
   end
 end
