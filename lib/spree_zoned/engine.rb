@@ -2,7 +2,7 @@ module Spree
   module Zoned
     class Engine < Rails::Engine
       engine_name 'spree_zoned'
-      isolate_namespace Spree::Zoned
+      isolate_namespace Spree
 
       config.autoload_paths += %W(#{config.root}/lib)
 
