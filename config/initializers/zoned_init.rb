@@ -38,3 +38,4 @@ Rails.configuration.commonCountriesForSelect = ZONED_COMMON_COUNTRIES.map do |id
 end
 
 Spree::Config.searcher_class = Spree::Zoned::Search::Base
+Spree::Config.admin_products_per_page = 64

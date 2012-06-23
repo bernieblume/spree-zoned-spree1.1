@@ -46,6 +46,7 @@ module Spree
             base_scope = get_products_conditions_for(base_scope, keywords) unless keywords.blank?
             base_scope = base_scope.on_hand unless Spree::Config[:show_zero_stock_products]
             base_scope = add_search_scopes(base_scope)
+            base_scope = base_scope.order('spree_zoned_products.orderno') if country
             base_scope
           end
 
