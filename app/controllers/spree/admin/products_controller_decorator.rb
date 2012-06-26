@@ -40,8 +40,8 @@ protected
         @collection = @search.result.
           joins(
               'LEFT OUTER JOIN spree_zoned_products ON spree_zoned_products.spree_product_id = spree_products.id' +
-              " AND spree_zoned_products.spree_country_id = #{country}").where(
-              '(spree_zoned_products.orderno IS NULL OR spree_zoned_products.orderno >= 0)').
+              " AND spree_zoned_products.spree_country_id = #{country}").
+          #where('(spree_zoned_products.orderno IS NULL OR spree_zoned_products.orderno >= 0)').
           order('spree_zoned_products.orderno').
           includes([:master, {:variants => [:images, :option_values]}]).
           page(params[:page]).
