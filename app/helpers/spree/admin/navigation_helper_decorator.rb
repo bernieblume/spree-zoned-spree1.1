@@ -4,8 +4,8 @@ module Spree
 
       def link_to_deletefc(resource, options = {}, html_options={})
         options.assert_valid_keys(:url, :caption, :title, :dataType, :success, :error, :name)
-
         country = session[:zoned] && session[:zoned][:prd_country]
+        return if !country || country == 0
         if country && !resource.incountry?(country.to_i)
           options.reverse_merge! :url => object_url(resource) + '/zonedbtc' unless options.key? :url
           options.reverse_merge! :caption => t(:are_you_sure)

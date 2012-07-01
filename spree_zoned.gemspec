@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_zoned'
-  s.version     = '0.5.19'
+  s.version     = '0.5.20'
   s.summary     = 'A Spree extension to make your store zoned'
   s.description = "Everything you need for a zoned Spree store: zoned pricing, zoned products, zoned product ordering, zoned locales, ...\nProbalbly essential to you if you operate outside of the US."
   s.required_ruby_version = '>= 1.9.2'
