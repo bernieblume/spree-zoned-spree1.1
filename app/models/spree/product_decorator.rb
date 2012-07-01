@@ -30,7 +30,7 @@ module Spree
 
   protected
 
-    def setorderno(country, price)
+    def setorderno(country, ono)
       clist = Spree::Zoned::Product.where "spree_product_id = ? AND spree_country_id = ?", id, country
       if clist == []
         zp = Spree::Zoned::Product.new
