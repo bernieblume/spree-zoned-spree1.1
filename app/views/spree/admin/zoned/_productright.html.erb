@@ -1,12 +1,13 @@
   <%= f.field_container :price do %>
     <%= f.label :price, t(:master_price) %> <span class="required">*</span>
     <br />(<%= t('country') + ": " -%>
-    <% country = session[:zoned] && session[:zoned][:prd_country].to_i %>
+    <% country = session[:zoned] && session[:zoned][:prd_country] %>
+    <% country = country ? country.to_i : 0 %>
     <% c = Rails.application.config.commonCountriesForSelect.select {|e| e[1]==country} %>
     <%= c.length == 1 ? c[0][0] : t(:nocountrysel) -%>
     )<br />
     <%= f.text_field :price, :value => number_with_precision(
-       @product.price, precision: 2)%>
+       getCPrice(@product), precision: 2)%>
     <%= f.error_message_on :price %>
   <% end %>
 

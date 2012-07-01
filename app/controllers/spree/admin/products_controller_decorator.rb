@@ -2,7 +2,7 @@ require 'delocalize'
 
 Spree::Admin::ProductsController.class_eval do
   
-  before_filter :deloc_master_price
+  before_filter :delocSetPrice, :only => :update
 
   def deletefc
     inorout(@product.method :delfrom)
@@ -82,18 +82,23 @@ protected
 
   def inorout(m)
     country = session[:zoned] && session[:zoned][:prd_country]
-    m.call(country.to_i) if country
+    m.call(country.to_i) if country && country.to_i != 0
     respond_to do |format|
       format.html { redirect_to collection_url }
       format.js { render nothing: true }
     end
   end
 
-  def deloc_master_price
+  def delocSetPrice
     if params[:product] && params[:product][:price]
       params[:product][:price] = Delocalize::LocalizedNumericParser.parse(
         params[:product][:price])
     end
+    country = session[:zoned] && session[:zoned][:prd_country]
+    if country && country != 0 && params[:product] && params[:product][:price]
+      @product.setprice(country.to_i, BigDecimal.new(params[:product][:price]))
+    end
+    params[:product][:price] = @product.price
   end
 
 end

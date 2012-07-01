@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spree_zoned (0.5.0)
+    spree_zoned (0.5.18)
       spree_core (~> 1.1.1)
 
 GEM

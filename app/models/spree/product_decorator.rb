@@ -14,9 +14,23 @@ module Spree
       setorderno country, 0
     end
 
+    def setprice(country, price)
+      clist = Spree::Zoned::Product.where "spree_product_id = ? AND spree_country_id = ?", id, country
+      if !clist || clist == []
+        zp = Spree::Zoned::Product.new
+        zp.spree_country_id = country
+        zp.spree_product_id = id
+        zp.orderno = 0
+      else
+        zp = clist[0]
+      end
+      zp.cprice = price
+      zp.save
+    end
+
   protected
 
-    def setorderno(country, ono)
+    def setorderno(country, price)
       clist = Spree::Zoned::Product.where "spree_product_id = ? AND spree_country_id = ?", id, country
       if clist == []
         zp = Spree::Zoned::Product.new
