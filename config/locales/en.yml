@@ -5,3 +5,4 @@ en:
   nocountrysel: "No country selected"
   deletefc: "Delete from country"
   backtocountry: "Reassign to country"
+  country_price: "Country-specific price"

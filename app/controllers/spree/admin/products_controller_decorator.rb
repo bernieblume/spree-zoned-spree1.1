@@ -1,6 +1,8 @@
 require 'delocalize'
 
 Spree::Admin::ProductsController.class_eval do
+
+  include ActionView::Helpers::NumberHelper
   
   before_filter :delocSetPrice, :only => :update
 
@@ -10,6 +12,20 @@ Spree::Admin::ProductsController.class_eval do
   
   def backtocountry
     inorout(@product.method :backtocountry)
+  end
+
+  def update
+    puts "Here spree/admin/products_controller/update"
+    puts "BEFORE: @product.price: #{@product.price}"
+    puts "params[:product][:price]: #{params[:product][:price]}"
+    params[:product][:price] = Delocalize::LocalizedNumericParser.parse(params[:product][:price])
+    puts "params[:product][:price] after parse: #{params[:product][:price]}"
+    # delete cprice to prevent mass assignemnt error in ActiveModel
+    # cprice has already been handled in before_filter "delocSetrPrice"
+    params[:product].delete :cprice
+    @product.update_attributes(params[:product])
+    puts "AFTER: @product.price: #{@product.price}"
+    redirect_to :action => 'edit'
   end
 
 protected
@@ -90,15 +106,11 @@ protected
   end
 
   def delocSetPrice
-    if params[:product] && params[:product][:price]
-      params[:product][:price] = Delocalize::LocalizedNumericParser.parse(
-        params[:product][:price])
-    end
     country = session[:zoned] && session[:zoned][:prd_country]
-    if country && country != 0 && params[:product] && params[:product][:price]
-      @product.setprice(country.to_i, BigDecimal.new(params[:product][:price]))
+    if country && country.to_i != 0 && params[:product] && params[:product][:cprice]
+      puts "Here delocSetPrice before setprice: params[:product][:cprice]: #{params[:product][:cprice]}"
+      @product.setprice(country.to_i, BigDecimal.new(Delocalize::LocalizedNumericParser.parse(params[:product][:cprice])))
     end
-    params[:product][:price] = @product.price
-  end
+ end
 
 end
