@@ -16,7 +16,9 @@ module Spree
         return if !country || country.to_i >= 0
         country = country.to_i
         params[:positions].each do |id, index|
-          Spree::Zoned::Product.find_or_create_by_spree_product_id_and_spree_country_id(id, country).update_attributes :orderno => index.to_i
+          zp = Spree::Zoned::Product.find_or_create_by_spree_product_id_and_spree_country_id(id, country)
+          zp.orderno = index.to_i unless !zp.orderno.nil? && zp.orderno < 0
+          zp.save
         end
         respond_to do |format|
           format.html { redirect_to admin_products_url }
