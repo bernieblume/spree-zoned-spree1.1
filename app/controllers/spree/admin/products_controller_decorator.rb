@@ -15,16 +15,11 @@ Spree::Admin::ProductsController.class_eval do
   end
 
   def update
-    puts "Here spree/admin/products_controller/update"
-    puts "BEFORE: @product.price: #{@product.price}"
-    puts "params[:product][:price]: #{params[:product][:price]}"
     params[:product][:price] = Delocalize::LocalizedNumericParser.parse(params[:product][:price])
-    puts "params[:product][:price] after parse: #{params[:product][:price]}"
     # delete cprice to prevent mass assignemnt error in ActiveModel
     # cprice has already been handled in before_filter "delocSetrPrice"
     params[:product].delete :cprice
     @product.update_attributes(params[:product])
-    puts "AFTER: @product.price: #{@product.price}"
     redirect_to :action => 'edit'
   end
 
@@ -108,7 +103,6 @@ protected
   def delocSetPrice
     country = session[:zoned] && session[:zoned][:prd_country]
     if country && country.to_i != 0 && params[:product] && params[:product][:cprice]
-      puts "Here delocSetPrice before setprice: params[:product][:cprice]: #{params[:product][:cprice]}"
       @product.setprice(country.to_i, BigDecimal.new(Delocalize::LocalizedNumericParser.parse(params[:product][:cprice])))
     end
  end

@@ -1,5 +1,6 @@
 Spree::Core::Engine.routes.draw do
   match '/zonedcs' => "zoned#setcountry"
+  match '/zonedls' => "zoned#setlanguage"
   namespace :admin do
     match '/zonedcs' => "zoned#setcountry"
     match '/products/reorder' => "zoned#reorder", :via => :post
