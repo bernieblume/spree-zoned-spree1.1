@@ -13,9 +13,7 @@ module Spree
 
       # load all decorators
       def self.activate
-        if Spree::Config.instance
-          Spree::Config[:auto_capture] = true
-        end
+        Spree::Config[:auto_capture] = true
         Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
           Rails.configuration.cache_classes ? require(c) : load(c)
         end
