@@ -8,3 +8,18 @@ de:
   master_price: "Master - Preis"
   country_price: "Länderpreis"
   language: "Sprache"
+  iaccept: "Ich akzeptiere die "
+  plsaccept: "Bitte akzeptieren Sie die "
+  terms: "AGB"
+  acceptfield: "Ich_akzeptiere_die_AGB"
+  termstext: |
+    Das hier sind die deutschen AGB__\
+    Lorem\nipsum dolor sit amet,_\
+    consetetur sadipscing elitr, "sed" diam nonumy eirmod tempor invidunt \
+    ut labore et dolore magna aliquyam erat, sed diam voluptua. \
+    At vero eos et accusam et justo duo dolores et ea rebum. \
+    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, \
+    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, \
+    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. \
+    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

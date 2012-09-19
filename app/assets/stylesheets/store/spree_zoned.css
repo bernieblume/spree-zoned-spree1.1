@@ -1,2 +1,6 @@
+/*
+ *= require jquery.ui.all
+ */
+
 div#zoned-countryselect { text-align: right; }
 div#zoned-countryselect label { color: #a33; font-weight: bold; font-size: 125% }

@@ -6,4 +6,8 @@ else
   gem 'ruby-debug19'
 end
 
+group :assets do
+  gem 'jquery-ui-rails'
+end
+
 gemspec

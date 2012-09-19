@@ -1,5 +1,24 @@
-<fieldset id="billing" data-hook>
-  <div class="inner" data-hook="billing_inner">
+<script type="text/javascript">
+$(document).ready(function() {
+  var $agbtext = '<%= t(:termstext) -%>';
+  var $parsedagb = $agbtext.replace(/_/g, '<br />');
+  var $agb = $('<div></div>')
+    .html($parsedagb)
+    .dialog({
+      autoOpen: false,
+      modal: true,
+      draggable: true,
+      buttons: { "OK": function() { $(this).dialog("close"); } },
+      title: '<%= t(:terms) -%>'
+    });
+  $('#opentos').click(function() {
+    $agb.dialog('open');
+    return false; // prevent the default action, e.g. following a link
+  });
+});
+</script>
+<div class="inner" data-hook="billing_inner">
+  <fieldset id="billing" data-hook>
     <%= form.fields_for :bill_address do |bill_form| %>
       <legend><%= t(:billing_address) %></legend>
       <p class="field" id="bfirstname">
@@ -75,10 +94,11 @@
           <%= bill_form.text_field :alternative_phone %>
         </p>
       <% end %>
+      <p class="field checkbox" id="bterms">
+        <%= label_tag :order_accept, "#{t(:iaccept)}", :id => 'accept' -%>
+        <a id="opentos" href=""><%= t(:terms) -%></a><span class="req">*</span><br />
+        <%= check_box_tag "order[accept]", '1', false, :class => 'required' %> 
+      </p>
     <% end %>
-    <p class"field" id="accepttsandcs">
-      <%= label_tag "Ich akzeptiere die AGB" %>
-      <%= check_box_tag "accept" %>
-    </p>
-  </div>
-</fieldset>
+  </fieldset>
+</div>

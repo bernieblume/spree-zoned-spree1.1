@@ -7,3 +7,18 @@ nl-NL:
   backtocountry: "Terug naar dit land"
   country_price: "Prijs voor dit land"
   language: "Taal"
+  iaccept: "Ik accepteer de "
+  plsaccept: "Accepteer onze AVV a.u.b."
+  terms: "AVV"
+  acceptfield: "Ik accepteer de AVV"
+  termstext: |
+    Hier zijn de nederlandse AVV:__\
+    Lorem\nipsum dolor sit amet,_\
+    consetetur sadipscing elitr, "sed" diam nonumy eirmod tempor invidunt \
+    ut labore et dolore magna aliquyam erat, sed diam voluptua. \
+    At vero eos et accusam et justo duo dolores et ea rebum. \
+    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, \
+    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, \
+    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. \
+    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
