@@ -6,7 +6,7 @@ module Spree
     end
 
     def hlpAvailLangs(country)
-      Rails.configuration.availableLanguages[country] || ["English", "en"]
+      Rails.configuration.availableLanguages[country] || [["English", :en]]
     end
 
   end

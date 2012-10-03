@@ -28,9 +28,9 @@ ZONED_COMMON_LOCALES =
   -74  => [:de, :en], # Germany
   -13  => [:de, :en], # Austria
   -195 => [:de, :en], # Switzerland
-  -142 => [:'nl-NL', :en], # Netherlands
-  -20  => [:'nl-NL', :de, :en], # Belgium
-  -117 => [:de, :en, :'nl-NL'], # Luxembourg
+  -142 => [:nl, :en], # Netherlands
+  -20  => [:nl, :de, :en], # Belgium
+  -117 => [:de, :en, :nl], # Luxembourg
 }
 
 Rails.configuration.commonCountriesForSelect = ZONED_COMMON_COUNTRIES.map do |id|

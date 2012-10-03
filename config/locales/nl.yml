@@ -1,7 +1,7 @@
 # Sample localization file for Dutch. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 ---
-nl-NL:
+nl:
   nocountrysel: "Geen land"
   deletefc: "Verwijderen van dit land"
   backtocountry: "Terug naar dit land"
