@@ -41,4 +41,4 @@ Rails.configuration.availableLanguages = Hash[ZONED_COMMON_LOCALES.map { |c, lgs
 
 Spree::Config.searcher_class = Spree::Zoned::Search::Base
 Spree::Config.admin_products_per_page = 64
-Spree::PrintInvoice::Config[:print_invoice_logo_path] = "admin/bg/hau-to-logo-claim-small.png"
+Spree::PrintInvoice::Config[:print_invoice_logo_path] = "admin/bg/hau-to-logo-claim.png"
